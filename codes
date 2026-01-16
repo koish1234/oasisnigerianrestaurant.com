@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oasis Nigerian Restaurant - Order</title>
+    <style>
+        /* Reset & Basic Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            background: #000;
+            overflow-x: hidden;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        .logo img {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        nav ul {
+            display: flex;
+            gap: 40px;
+        }
+        nav ul li a {
+            font-size: 18px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+
+        /* Main Content */
+        .order-main {
+            padding: 180px 50px 100px;
+            text-align: center;
+            min-height: 100vh;
+        }
+        .welcome {
+            font-size: 48px;
+            color: #ffd700;
+            margin-bottom: 30px;
+            animation: fadeIn 1.5s ease-in;
+        }
+        .question {
+            font-size: 36px;
+            margin: 60px 0 80px;
+            display: none;
+            animation: fadeIn 1s ease-in;
+        }
+        .choices {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            flex-wrap: wrap;
+            display: none;
+        }
+        .choice-btn {
+            padding: 25px 80px;
+            background: #ffd700;
+            color: #000;
+            font-size: 28px;
+            font-weight: bold;
+            border-radius: 60px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .choice-btn:hover {
+            background: #fff;
+            transform: scale(1.08);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .order-main {
+                padding: 140px 20px 60px;
+            }
+            .welcome {
+                font-size: 36px;
+            }
+            .question {
+                font-size: 28px;
+            }
+            .choices {
+                flex-direction: column;
+                gap: 40px;
+            }
+            .choice-btn {
+                padding: 20px 60px;
+                font-size: 24px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt="Oasis Nigerian Restaurant Logo"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="booking.html">Booking</a></li>
+                <li><a href="order.html">Order Food</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Order Intro -->
+    <section class="order-main">
+        <div class="welcome">Welcome to Oasis – The Best and Fastest Nigerian Kitchen in Nairobi</div>
+        
+        <div class="question">What would you like to order?</div>
+        
+        <div class="choices">
+            <a href="food.html" class="choice-btn">Order Food</a>
+            <a href="alcohol.html" class="choice-btn">Order Alcohol</a>
+        </div>
+    </section>
+
+    <!-- JavaScript for Sequence -->
+    <script>
+        // Welcome → hide after 3s, show question after +2s delay → choices appear
+        setTimeout(() => {
+            document.querySelector('.welcome').style.display = 'none';
+            document.querySelector('.question').style.display = 'block';
+            setTimeout(() => {
+                document.querySelector('.choices').style.display = 'flex';
+            }, 2000);
+        }, 3000);
+    </script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oasis Nigerian Restaurant - Food Menu</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; color: #fff; background: #000; }
+        header { position: fixed; top: 0; width: 100%; padding: 15px 20px; background: rgba(0,0,0,0.7); z-index: 1000; display: flex; justify-content: space-between; align-items: center; }
+        .logo img { width: 45px; height: 45px; border-radius: 50%; }
+        nav ul { display: flex; gap: 20px; }
+        nav ul li a { font-size: 14px; color: #fff; }
+        nav ul li a:hover { color: #ffd700; }
+
+        .menu-main { padding: 90px 15px 140px; }
+        h1 { font-size: 32px; color: #ffd700; text-align: center; }
+        .intro { font-size: 16px; text-align: center; color: #ccc; margin: 10px 0 30px; }
+
+        .category { margin: 40px 0; }
+        .category h2 { font-size: 24px; color: #ffd700; margin-bottom: 15px; }
+        .menu-list { display: flex; flex-direction: column; gap: 12px; }
+        .menu-item { background: #111; border-radius: 12px; padding: 10px; display: flex; align-items: center; gap: 10px; cursor: pointer; }
+        .menu-item img { width: 90px; height: 90px; object-fit: cover; border-radius: 8px; }
+        .item-info { flex: 1; }
+        .item-info h3 { font-size: 17px; margin-bottom: 4px; }
+        .item-info p { font-size: 15px; color: #ffd700; font-weight: bold; }
+        .add-btn { padding: 8px 16px; background: #ffd700; color: #000; border-radius: 25px; font-size: 14px; font-weight: bold; cursor: pointer; }
+
+        .cart-icon { position: fixed; bottom: 80px; right: 20px; width: 60px; height: 60px; background: #ffd700; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.5); z-index: 999; }
+        .cart-icon span { font-size: 24px; color: #000; }
+        .cart-badge { position: absolute; top: -5px; right: -5px; background: red; color: white; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; }
+
+        .cart-panel { position: fixed; bottom: 0; left: 0; width: 100%; max-height: 70vh; background: #1a1a1a; border-top-left-radius: 20px; border-top-right-radius: 20px; padding: 15px; display: none; flex-direction: column; z-index: 998; overflow-y: auto; }
+        .cart-panel h3 { font-size: 20px; color: #ffd700; margin-bottom: 10px; }
+        .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #333; font-size: 14px; }
+        .quantity { display: flex; gap: 10px; }
+        .quantity-btn { padding: 4px 10px; background: #ffd700; color: #000; border-radius: 5px; cursor: pointer; font-size: 12px; }
+        .total { font-size: 18px; color: #ffd700; margin: 15px 0; text-align: right; }
+        .checkout-btn { padding: 12px; background: #ffd700; color: #000; font-weight: bold; border-radius: 30px; text-align: center; cursor: pointer; }
+
+        .variant-popup, .checkout-form, .receipt { position: fixed; inset: 0; background: rgba(0,0,0,0.85); display: none; align-items: center; justify-content: center; z-index: 2000; }
+        .variant-content, .form-content, .receipt-content { background: #111; padding: 20px; border-radius: 15px; width: 90%; max-width: 360px; }
+        .variant-options { display: flex; flex-direction: column; gap: 10px; }
+        .variant-btn { padding: 12px; background: #222; border-radius: 10px; cursor: pointer; display: flex; justify-content: space-between; }
+        input { width: 100%; padding: 12px; margin: 8px 0; background: #222; border: none; color: #fff; border-radius: 8px; }
+        .rider-option { margin: 15px 0; }
+        .rider-option label { display: block; margin: 8px 0; }
+        #location-field { display: none; }
+        .btn { padding: 12px; margin: 8px 0; border-radius: 30px; text-align: center; cursor: pointer; font-weight: bold; }
+        .submit-btn { background: #ffd700; color: #000; }
+        .cancel-btn { background: #444; color: #fff; }
+        .receipt-details { font-size: 14px; white-space: pre-wrap; margin-bottom: 15px; background: #222; padding: 10px; border-radius: 8px; }
+        .codes { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin: 15px 0; }
+        .codes canvas, #qrcode { background: #fff; padding: 10px; border-radius: 10px; max-width: 140px; }
+
+        .action-buttons { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+        .pdf-btn, .wa-btn { background: #ffd700; color: #000; text-decoration: none; display: block; }
+
+        .upsell { display: none; margin: 30px 0; padding: 20px; background: #111; border-radius: 15px; }
+        .upsell h2 { font-size: 22px; color: #ffd700; margin-bottom: 15px; }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/jsbarcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><a href="index.html"><img src="images/logo.png" alt="Oasis"></a></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="booking.html">Booking</a></li>
+                <li><a href="order.html">Order Food</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="menu-main">
+        <h1>Food Menu</h1>
+        <p class="intro">Authentic Nigerian Flavours – Fresh Daily at Oasis</p>
+
+        <!-- Stews -->
+        <div class="category">
+            <h2>Stews</h2>
+            <div class="menu-list">
+                <div class="menu-item" onclick="addToCart('Chicken Stew', 1000)">
+                    <img src="https://media.istockphoto.com/id/1404501005/photo/jollof-rice.jpg?s=612x612&w=0&k=20&c=jMHne7L_u5mE5yqB9Bmofsv5eIAfBZi82i0_EBA7gJM=" alt="Chicken Stew">
+                    <div class="item-info"><h3>Chicken Stew</h3><p>KES 1,000</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Turkey Stew', 1200)">
+                    <img src="https://www.shutterstock.com/shutterstock/photos/2139705119/display_1500/stock-photo-jollof-rice-with-fried-banana-on-a-plate-rice-with-tomatoes-onions-spices-traditional-national-2139705119.jpg" alt="Turkey Stew">
+                    <div class="item-info"><h3>Turkey Stew</h3><p>KES 1,200</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Beef Stew', 700)">
+                    <img src="https://allnigerianfoods.com/wp-content/uploads/egusi_soup-1-500x375.jpg" alt="Beef Stew">
+                    <div class="item-info"><h3>Beef Stew</h3><p>KES 700</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Goat Meat Stew', 800)">
+                    <img src="https://kscuisine.com/wp-content/uploads/2019/10/egusi-soup-i-500x375.jpeg" alt="Goat Meat Stew">
+                    <div class="item-info"><h3>Goat Meat Stew</h3><p>KES 800</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Titus Fish Stew', 800)">
+                    <img src="https://i0.wp.com/www.1qfoodplatter.com/wp-content/uploads/2016/07/Nigerian-Egusi-Soup-3.jpg?ssl=1" alt="Titus Fish Stew">
+                    <div class="item-info"><h3>Titus Fish Stew</h3><p>KES 800</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Cow Leg Stew', 800)">
+                    <img src="https://media.istockphoto.com/id/1404501005/photo/jollof-rice.jpg?s=612x612&w=0&k=20&c=jMHne7L_u5mE5yqB9Bmofsv5eIAfBZi82i0_EBA7gJM=" alt="Cow Leg Stew">
+                    <div class="item-info"><h3>Cow Leg Stew</h3><p>KES 800</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Assorted Stew', 800)">
+                    <img src="https://www.shutterstock.com/shutterstock/photos/2139705119/display_1500/stock-photo-jollof-rice-with-fried-banana-on-a-plate-rice-with-tomatoes-onions-spices-traditional-national-2139705119.jpg" alt="Assorted Stew">
+                    <div class="item-info"><h3>Assorted Stew</h3><p>KES 800</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Tilapia Stew', 1000)">
+                    <img src="https://i0.wp.com/www.1qfoodplatter.com/wp-content/uploads/2016/07/Nigerian-Egusi-Soup-3.jpg?ssl=1" alt="Tilapia Stew">
+                    <div class="item-info"><h3>Tilapia Stew</h3><p>KES 1,000</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Native Stew', 800)">
+                    <img src="https://kscuisine.com/wp-content/uploads/2019/10/egusi-soup-i-500x375.jpeg" alt="Native Stew">
+                    <div class="item-info"><h3>Native Stew</h3><p>KES 800</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Snacks -->
+        <div class="category">
+            <h2>Snacks</h2>
+            <div class="menu-list">
+                <div class="menu-item" onclick="addToCart('Chin Chin', 250)">
+                    <img src="https://allnigerianfoods.com/wp-content/uploads/akara-beans-cake.jpg" alt="Chin Chin">
+                    <div class="item-info"><h3>Chin Chin</h3><p>KES 250</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Puff Puff', 150)">
+                    <img src="https://cdn.shopify.com/s/files/1/0632/9617/6264/files/akara-e1506724484724.jpg?v=1754853411" alt="Puff Puff">
+                    <div class="item-info"><h3>Puff Puff</h3><p>KES 150</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Meat pie/chicken pie', 200)">
+                    <img src="https://sisijemimah.com/wp-content/uploads/2015/12/moimoi-3.jpg" alt="Meat Pie">
+                    <div class="item-info"><h3>Meat pie / chicken pie</h3><p>KES 200</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Egg roll', 150)">
+                    <img src="https://celebrationgeneration.com/wp-content/uploads/2018/02/Moi-Moi-7.jpg" alt="Egg Roll">
+                    <div class="item-info"><h3>Egg roll</h3><p>KES 150</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Swallows -->
+        <div class="category">
+            <h2>Swallows</h2>
+            <div class="menu-list">
+                <div class="menu-item" onclick="addToCart('Eba', 400)">
+                    <img src="https://i.ytimg.com/vi/Kl57yfVNIoE/maxresdefault.jpg" alt="Eba">
+                    <div class="item-info"><h3>Eba</h3><p>KES 400</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Semo', 300)">
+                    <img src="https://allnigerianfoods.com/wp-content/uploads/egusi_soup-1.jpg" alt="Semo">
+                    <div class="item-info"><h3>Semo</h3><p>KES 300</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Pounded yam', 700)">
+                    <img src="https://media.istockphoto.com/id/1404501005/photo/jollof-rice.jpg?s=612x612&w=0&k=20&c=jMHne7L_u5mE5yqB9Bmofsv5eIAfBZi82i0_EBA7gJM=" alt="Pounded Yam">
+                    <div class="item-info"><h3>Pounded yam</h3><p>KES 700</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Amala', 700)">
+                    <img src="https://kscuisine.com/wp-content/uploads/2019/10/egusi-soup-i-500x375.jpeg" alt="Amala">
+                    <div class="item-info"><h3>Amala</h3><p>KES 700</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Fufu', 500)">
+                    <img src="https://i0.wp.com/www.1qfoodplatter.com/wp-content/uploads/2016/07/Nigerian-Egusi-Soup-3.jpg?ssl=1" alt="Fufu">
+                    <div class="item-info"><h3>Fufu</h3><p>KES 500</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Breakfast -->
+        <div class="category">
+            <h2>Breakfast</h2>
+            <div class="menu-list">
+                <div class="menu-item" onclick="addToCart('Akara(beans ball)', 400)">
+                    <img src="https://allnigerianfoods.com/wp-content/uploads/akara-beans-cake.jpg" alt="Akara">
+                    <div class="item-info"><h3>Akara (beans ball)</h3><p>KES 400</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Akara and Akamu (pap)', 1000)">
+                    <img src="https://cdn.shopify.com/s/files/1/0632/9617/6264/files/akara-e1506724484724.jpg?v=1754853411" alt="Akara and Pap">
+                    <div class="item-info"><h3>Akara and Akamu (pap)</h3><p>KES 1,000</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Moi moi and Akamu (pap)/ Custard', 1000)">
+                    <img src="https://sisijemimah.com/wp-content/uploads/2015/12/moimoi-3.jpg" alt="Moi Moi">
+                    <div class="item-info"><h3>Moi moi and Akamu (pap)/ Custard</h3><p>KES 1,000</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Fried plantain and Egg Sauce', 800)">
+                    <img src="https://celebrationgeneration.com/wp-content/uploads/2018/02/Moi-Moi-7.jpg" alt="Fried Plantain">
+                    <div class="item-info"><h3>Fried plantain and Egg Sauce</h3><p>KES 800</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rice / Pasta -->
+        <div class="category">
+            <h2>Rice / Pasta</h2>
+            <div class="menu-list">
+                <div class="menu-item" onclick="addToCart('Jollof rice', 500)">
+                    <img src="https://media.istockphoto.com/id/1404501005/photo/jollof-rice.jpg?s=612x612&w=0&k=20&c=jMHne7L_u5mE5yqB9Bmofsv5eIAfBZi82i0_EBA7gJM=" alt="Jollof Rice">
+                    <div class="item-info"><h3>Jollof rice</h3><p>KES 500</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Fried rice', 500)">
+                    <img src="https://www.shutterstock.com/shutterstock/photos/2139705119/display_1500/stock-photo-jollof-rice-with-fried-banana-on-a-plate-rice-with-tomatoes-onions-spices-traditional-national-2139705119.jpg" alt="Fried Rice">
+                    <div class="item-info"><h3>Fried rice</h3><p>KES 500</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Native rice', 500)">
+                    <img src="https://kscuisine.com/wp-content/uploads/2019/10/egusi-soup-i-500x375.jpeg" alt="Native Rice">
+                    <div class="item-info"><h3>Native rice</h3><p>KES 500</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Coconut rice', 500)">
+                    <img src="https://media.istockphoto.com/id/1404501005/photo/jollof-rice.jpg?s=612x612&w=0&k=20&c=jMHne7L_u5mE5yqB9Bmofsv5eIAfBZi82i0_EBA7gJM=" alt="Coconut Rice">
+                    <div class="item-info"><h3>Coconut rice</h3><p>KES 500</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Jollof Spaghetti', 500)">
+                    <img src="https://www.shutterstock.com/shutterstock/photos/2139705119/display_1500/stock-photo-jollof-rice-with-fried-banana-on-a-plate-rice-with-tomatoes-onions-spices-traditional-national-2139705119.jpg" alt="Jollof Spaghetti">
+                    <div class="item-info"><h3>Jollof Spaghetti</h3><p>KES 500</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('White rice and beans', 400)">
+                    <img src="https://media.istockphoto.com/id/1404501005/photo/jollof-rice.jpg?s=612x612&w=0&k=20&c=jMHne7L_u5mE5yqB9Bmofsv5eIAfBZi82i0_EBA7gJM=" alt="White Rice and Beans">
+                    <div class="item-info"><h3>White rice and beans</h3><p>KES 400</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('White rice', 300)">
+                    <img src="https://www.shutterstock.com/shutterstock/photos/2139705119/display_1500/stock-photo-jollof-rice-with-fried-banana-on-a-plate-rice-with-tomatoes-onions-spices-traditional-national-2139705119.jpg" alt="White Rice">
+                    <div class="item-info"><h3>White rice</h3><p>KES 300</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Jollof rice and beans', 500)">
+                    <img src="https://media.istockphoto.com/id/1404501005/photo/jollof-rice.jpg?s=612x612&w=0&k=20&c=jMHne7L_u5mE5yqB9Bmofsv5eIAfBZi82i0_EBA7gJM=" alt="Jollof Rice and Beans">
+                    <div class="item-info"><h3>Jollof rice and beans</h3><p>KES 500</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Asun Jollof rice', 800)">
+                    <img src="https://kscuisine.com/wp-content/uploads/2019/10/egusi-soup-i-500x375.jpeg" alt="Asun Jollof">
+                    <div class="item-info"><h3>Asun Jollof rice</h3><p>KES 800</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Soups -->
+        <div class="category">
+            <h2>Soups</h2>
+            <div class="menu-list">
+                <div class="menu-item" onclick="addToCart('Egusi soup with beef', 1000)">
+                    <img src="https://allnigerianfoods.com/wp-content/uploads/egusi_soup-1-500x375.jpg" alt="Egusi Beef">
+                    <div class="item-info"><h3>Egusi soup with beef</h3><p>KES 1,000</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Egusi soup with goat meat', 1200)">
+                    <img src="https://kscuisine.com/wp-content/uploads/2019/10/egusi-soup-i-500x375.jpeg" alt="Egusi Goat">
+                    <div class="item-info"><h3>Egusi soup with goat meat</h3><p>KES 1,200</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Egusi soup with chicken', 1500)">
+                    <img src="https://i0.wp.com/www.1qfoodplatter.com/wp-content/uploads/2016/07/Nigerian-Egusi-Soup-3.jpg?ssl=1" alt="Egusi Chicken">
+                    <div class="item-info"><h3>Egusi soup with chicken</h3><p>KES 1,500</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Egusi soup with cow assorted meat', 1000)">
+                    <img src="https://allnigerianfoods.com/wp-content/uploads/egusi_soup-1.jpg" alt="Egusi Assorted">
+                    <div class="item-info"><h3>Egusi soup with cow assorted meat</h3><p>KES 1,000</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Ogbono soup with beef', 1000)">
+                    <img src="https://media.istockphoto.com/id/1404501005/photo/jollof-rice.jpg?s=612x612&w=0&k=20&c=jMHne7L_u5mE5yqB9Bmofsv5eIAfBZi82i0_EBA7gJM=" alt="Ogbono Beef">
+                    <div class="item-info"><h3>Ogbono soup with beef</h3><p>KES 1,000</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Ogbono with goat meat', 1200)">
+                    <img src="https://kscuisine.com/wp-content/uploads/2019/10/egusi-soup-i-500x375.jpeg" alt="Ogbono Goat">
+                    <div class="item-info"><h3>Ogbono with goat meat</h3><p>KES 1,200</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Ogbono soup with assorted meat', 1000)">
+                    <img src="https://i0.wp.com/www.1qfoodplatter.com/wp-content/uploads/2016/07/Nigerian-Egusi-Soup-3.jpg?ssl=1" alt="Ogbono Assorted">
+                    <div class="item-info"><h3>Ogbono soup with assorted meat</h3><p>KES 1,000</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Nsala soup with goat meat', 1200)">
+                    <img src="https://media.istockphoto.com/id/1404501005/photo/jollof-rice.jpg?s=612x612&w=0&k=20&c=jMHne7L_u5mE5yqB9Bmofsv5eIAfBZi82i0_EBA7gJM=" alt="Nsala Goat">
+                    <div class="item-info"><h3>Nsala soup with goat meat</h3><p>KES 1,200</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Nsala soup with chicken', 1500)">
+                    <img src="https://kscuisine.com/wp-content/uploads/2019/10/egusi-soup-i-500x375.jpeg" alt="Nsala Chicken">
+                    <div class="item-info"><h3>Nsala soup with chicken</h3><p>KES 1,500</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Okro soup', 1000)">
+                    <img src="https://i0.wp.com/www.1qfoodplatter.com/wp-content/uploads/2016/07/Nigerian-Egusi-Soup-3.jpg?ssl=1" alt="Okro">
+                    <div class="item-info"><h3>Okro soup</h3><p>KES 1,000</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Efo rio rio soup', 1000)">
+                    <img src="https://allnigerianfoods.com/wp-content/uploads/egusi_soup-1-500x375.jpg" alt="Efo Riro">
+                    <div class="item-info"><h3>Efo rio rio soup</h3><p>KES 1,000</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Banga soup', 1000)">
+                    <img src="https://media.istockphoto.com/id/1404501005/photo/jollof-rice.jpg?s=612x612&w=0&k=20&c=jMHne7L_u5mE5yqB9Bmofsv5eIAfBZi82i0_EBA7gJM=" alt="Banga">
+                    <div class="item-info"><h3>Banga soup</h3><p>KES 1,000</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Bitterleaf soup', 1000)">
+                    <img src="https://kscuisine.com/wp-content/uploads/2019/10/egusi-soup-i-500x375.jpeg" alt="Bitterleaf">
+                    <div class="item-info"><h3>Bitterleaf soup</h3><p>KES 1,000</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Oha soup', 1000)">
+                    <img src="https://i0.wp.com/www.1qfoodplatter.com/wp-content/uploads/2016/07/Nigerian-Egusi-Soup-3.jpg?ssl=1" alt="Oha">
+                    <div class="item-info"><h3>Oha soup</h3><p>KES 1,000</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Ewedu/gbegiri', 1000)">
+                    <img src="https://allnigerianfoods.com/wp-content/uploads/egusi_soup-1.jpg" alt="Ewedu">
+                    <div class="item-info"><h3>Ewedu/gbegiri</h3><p>KES 1,000</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('White Okro with stew', 1000)">
+                    <img src="https://media.istockphoto.com/id/1404501005/photo/jollof-rice.jpg?s=612x612&w=0&k=20&c=jMHne7L_u5mE5yqB9Bmofsv5eIAfBZi82i0_EBA7gJM=" alt="White Okro">
+                    <div class="item-info"><h3>White Okro with stew</h3><p>KES 1,000</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Goat meat pepper soup', 1000)">
+                    <img src="https://kscuisine.com/wp-content/uploads/2019/10/egusi-soup-i-500x375.jpeg" alt="Goat Pepper">
+                    <div class="item-info"><h3>Goat meat pepper soup</h3><p>KES 1,000</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Goat meat assorted pepper soup', 1000)">
+                    <img src="https://i0.wp.com/www.1qfoodplatter.com/wp-content/uploads/2016/07/Nigerian-Egusi-Soup-3.jpg?ssl=1" alt="Goat Assorted">
+                    <div class="item-info"><h3>Goat meat assorted pepper soup</h3><p>KES 1,000</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Cowleg peppersoup', 1000)">
+                    <img src="https://media.istockphoto.com/id/1404501005/photo/jollof-rice.jpg?s=612x612&w=0&k=20&c=jMHne7L_u5mE5yqB9Bmofsv5eIAfBZi82i0_EBA7gJM=" alt="Cowleg">
+                    <div class="item-info"><h3>Cowleg peppersoup</h3><p>KES 1,000</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Cow assorted pepper soup', 1000)">
+                    <img src="https://kscuisine.com/wp-content/uploads/2019/10/egusi-soup-i-500x375.jpeg" alt="Cow Assorted">
+                    <div class="item-info"><h3>Cow assorted pepper soup</h3><p>KES 1,000</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="addToCart('Catfish pepper soup', 1000)">
+                    <img src="https://i0.wp.com/www.1qfoodplatter.com/wp-content/uploads/2016/07/Nigerian-Egusi-Soup-3.jpg?ssl=1" alt="Catfish">
+                    <div class="item-info"><h3>Catfish pepper soup</h3><p>KES 1,000</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Non-Alcoholic -->
+        <div class="upsell" id="upsell">
+            <h2>Would you like it to come with...</h2>
+            <div class="menu-list">
+                <div class="menu-item" onclick="showVariants('Coke', [{size:'300ml', price:100}, {size:'500ml', price:150}, {size:'1L', price:200}])">
+                    <img src="https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=368995144949039" alt="Coke">
+                    <div class="item-info"><h3>Coke</h3><p>Select Size</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="showVariants('Fanta', [{size:'300ml', price:100}, {size:'500ml', price:150}])">
+                    <img src="https://www.china-snacks.com/wp-content/uploads/2024/08/fanta-500ml-5.jpg" alt="Fanta">
+                    <div class="item-info"><h3>Fanta</h3><p>Select Size</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="showVariants('Sprite', [{size:'300ml', price:100}, {size:'500ml', price:150}])">
+                    <img src="https://img.cdn4dd.com/cdn-cgi/image/fit=contain,width=1200,height=672,format=auto/https://doordash-static.s3.amazonaws.com/media/photosV2/5595c1ba-cdd7-4054-a4b0-74a3207beab2-retina-large.jpg" alt="Sprite">
+                    <div class="item-info"><h3>Sprite</h3><p>Select Size</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="showVariants('Minute Maid', [{size:'300ml', price:120}, {size:'500ml', price:180}])">
+                    <img src="https://www.coca-cola.com/content/dam/onexp/ke/home-image/brands/minute-maid/mm-hero-desktop.jpg" alt="Minute Maid">
+                    <div class="item-info"><h3>Minute Maid</h3><p>Select Size</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+                <div class="menu-item" onclick="showVariants('Water', [{size:'500ml', price:50}, {size:'1L', price:80}])">
+                    <img src="https://d2j6dbq0eux0bg.cloudfront.net/images/17197054/1293154413.jpg" alt="Water">
+                    <div class="item-info"><h3>Water</h3><p>Select Size</p></div>
+                    <div class="add-btn">Add</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="cart-icon" onclick="toggleCart()">
+        <span>🛒</span>
+        <div class="cart-badge" id="cart-count">0</div>
+    </div>
+
+    <div class="cart-panel" id="cart-panel">
+        <h3>Your Cart</h3>
+        <div id="cart-items"></div>
+        <div class="total" id="total">Total: KES 0</div>
+        <div class="checkout-btn" onclick="showCheckout()">Checkout</div>
+    </div>
+
+    <div class="variant-popup" id="variant-popup">
+        <div class="variant-content">
+            <h3 id="variant-title"></h3>
+            <div class="variant-options" id="variant-options"></div>
+            <div onclick="closeVariant()" style="color:#aaa; margin-top:15px; cursor:pointer; text-align:center;">Close</div>
+        </div>
+    </div>
+
+    <div class="checkout-form" id="checkout-form">
+        <div class="form-content">
+            <h2>Complete Order</h2>
+            <input type="text" id="name" placeholder="Your Name">
+            <div class="rider-option">
+                <p>Use Oasis Rider?</p>
+                <label><input type="radio" name="rider" value="yes" onclick="toggleLocation(true)"> Yes</label>
+                <label><input type="radio" name="rider" value="no" onclick="toggleLocation(false)" checked> No (Pickup)</label>
+            </div>
+            <div id="location-field">
+                <input type="text" id="location" placeholder="Delivery Location">
+                <div onclick="getLocation()" class="btn" style="background:#ffd700; color:#000;">Use Current Location</div>
+            </div>
+            <div class="submit-btn" onclick="generateReceipt()">Submit</div>
+            <div class="cancel-btn" onclick="closeCheckout()">Cancel</div>
+        </div>
+    </div>
+
+    <div class="receipt" id="receipt">
+        <div class="receipt-content">
+            <h2>Your Receipt</h2>
+            <div class="receipt-details" id="receipt-details"></div>
+            <div class="codes">
+                <canvas id="barcode"></canvas>
+                <div id="qrcode"></div>
+            </div>
+            <div class="action-buttons">
+                <div class="pdf-btn btn" onclick="downloadPDF()">Download PDF</div>
+                <a id="wa-link" class="wa-btn btn" href="#" target="_blank">Send to WhatsApp</a>
+            </div>
+            <div class="cancel-btn" onclick="document.getElementById('receipt').style.display='none'">Close</div>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+        const cartPanel = document.getElementById('cart-panel');
+        const cartCount = document.getElementById('cart-count');
+        const cartItemsElem = document.getElementById('cart-items');
+        const totalElem = document.getElementById('total');
+        const upsell = document.getElementById('upsell');
+
+        function toggleCart() { cartPanel.style.display = cartPanel.style.display === 'flex' ? 'none' : 'flex'; }
+
+        function addToCart(name, price) {
+            const existing = cart.find(item => item.name === name);
+            if (existing) existing.quantity++;
+            else cart.push({ name, price, quantity: 1 });
+            updateCart();
+        }
+
+        function updateCart() {
+            cartItemsElem.innerHTML = '';
+            let total = 0;
+            cart.forEach((item, i) => {
+                const div = document.createElement('div');
+                div.classList.add('cart-item');
+                div.innerHTML = `
+                    <span>${item.name} x ${item.quantity}</span>
+                    <div class="quantity">
+                        <div class="quantity-btn" onclick="changeQuantity(${i}, -1)">-</div>
+                        <div class="quantity-btn" onclick="changeQuantity(${i}, 1)">+</div>
+                    </div>
+                    <span>KES ${item.price * item.quantity}</span>
+                `;
+                cartItemsElem.appendChild(div);
+                total += item.price * item.quantity;
+            });
+            totalElem.textContent = `Total: KES ${total}`;
+            cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0) || '0';
+            upsell.style.display = cart.length ? 'block' : 'none';
+        }
+
+        function changeQuantity(i, delta) {
+            cart[i].quantity += delta;
+            if (cart[i].quantity <= 0) cart.splice(i, 1);
+            updateCart();
+        }
+
+        function showVariants(name, variants) {
+            document.getElementById('variant-popup').style.display = 'flex';
+            document.getElementById('variant-title').textContent = name + ' Size';
+            const options = document.getElementById('variant-options');
+            options.innerHTML = '';
+            variants.forEach(v => {
+                const btn = document.createElement('div');
+                btn.classList.add('variant-btn');
+                btn.innerHTML = `<span>${v.size}</span><span>KES ${v.price}</span>`;
+                btn.onclick = () => { addToCart(`${name} (${v.size})`, v.price); closeVariant(); };
+                options.appendChild(btn);
+            });
+        }
+
+        function closeVariant() { document.getElementById('variant-popup').style.display = 'none'; }
+
+        function toggleLocation(show) { document.getElementById('location-field').style.display = show ? 'block' : 'none'; }
+
+        function showCheckout() {
+            if (cart.length === 0) return alert("Cart is empty! Add some food first.");
+            document.getElementById('checkout-form').style.display = 'flex';
+        }
+
+        function closeCheckout() { document.getElementById('checkout-form').style.display = 'none'; }
+
+        function getLocation() {
+            navigator.geolocation.getCurrentPosition(pos => {
+                document.getElementById('location').value = `Lat ${pos.coords.latitude.toFixed(4)}, Lon ${pos.coords.longitude.toFixed(4)}`;
+            }, () => alert('Enable location or enter manually.'));
+        }
+
+        let orderCounter = parseInt(localStorage.getItem('orderCounter') || '0');
+        function generateReceipt() {
+            const name = document.getElementById('name').value.trim() || 'Guest';
+            const rider = document.querySelector('input[name="rider"]:checked')?.value || 'no';
+            const location = rider === 'yes' ? (document.getElementById('location').value.trim() || 'Not provided') : 'Pickup';
+            closeCheckout();
+
+            orderCounter++;
+            localStorage.setItem('orderCounter', orderCounter);
+            const nameCode = name.substring(0,3).toLowerCase() || 'gue';
+            const orderNum = `oas-${nameCode}-${orderCounter.toString().padStart(3,'0')}`;
+
+            let details = `Oasis Nigerian Restaurant Order\n`;
+            details += `Date: ${new Date().toLocaleString('en-KE')}\n`;
+            details += `Name: ${name}\n`;
+            details += `Delivery: ${rider === 'yes' ? 'Yes (Oasis Rider)' : 'No (Pickup)'}\n`;
+            details += `Location: ${location}\n\n`;
+            details += `Items:\n`;
+            let total = 0;
+            if (cart.length === 0) {
+                details += "(No items added yet)\n";
+            } else {
+                cart.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    details += `• ${item.name} × ${item.quantity} = KES ${itemTotal}\n`;
+                    total += itemTotal;
+                });
+            }
+            details += `\nTotal Amount: KES ${total}\n`;
+            details += `Order Number: ${orderNum}\n`;
+            details += `Thank you for choosing Oasis! 🍲🇳🇬`;
+
+            document.getElementById('receipt-details').textContent = details;
+            document.getElementById('receipt').style.display = 'flex';
+
+            JsBarcode("#barcode", orderNum, { format: "CODE128", lineColor: "#000", width: 1.8, height: 60, fontSize: 14 });
+            QRCode.toCanvas(document.getElementById('qrcode'), details, { width: 140 }, function (error) {
+                if (error) console.error(error);
+            });
+
+            const waText = encodeURIComponent(details);
+            const waUrl = `https://wa.me/254740582858?text=${waText}`;
+            const waLink = document.getElementById('wa-link');
+            waLink.href = waUrl;
+            waLink.onclick = function(e) {
+                e.preventDefault();
+                window.open(waUrl, '_blank');
+            };
+
+            cart = [];
+            updateCart();
+        }
+
+        function downloadPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            doc.setFontSize(12);
+            doc.text(document.getElementById('receipt-details').textContent, 10, 10, { maxWidth: 180 });
+            doc.save('oasis-receipt.pdf');
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oasis Nigerian Restaurant - Home</title>
+    <style>
+        /* Reset & Basic Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            overflow-x: hidden;
+            background: #000;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: 0.5s;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        .logo img {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        nav ul {
+            display: flex;
+            gap: 40px;
+        }
+        nav ul li a {
+            font-size: 18px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+
+        /* Hero Section with Video Background */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .hero video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .hero h1 {
+            font-size: 70px;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+        }
+        .hero p {
+            font-size: 24px;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #ffd700;
+            color: #000;
+            font-weight: bold;
+            font-size: 20px;
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #fff;
+            transform: scale(1.05);
+        }
+
+        /* Lounge Experience Section */
+        .experience {
+            padding: 100px 50px;
+            background: #111;
+            text-align: center;
+        }
+        .experience h2 {
+            font-size: 50px;
+            margin-bottom: 60px;
+        }
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .card {
+            width: 300px;
+            background: #1a1a1a;
+            padding: 30px;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
+        }
+        .card h3 {
+            font-size: 28px;
+            margin: 20px 0;
+            color: #ffd700;
+        }
+
+        /* Reserve Table Section - NEW */
+        .reserve {
+            padding: 100px 50px;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1517248135467-2c7ed3ab7229?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            text-align: center;
+        }
+        .reserve h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #ffd700;
+        }
+        .reserve p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+        .reserve-images {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+        .reserve-images img {
+            width: 320px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 3px solid #ffd700;
+            transition: 0.4s;
+        }
+        .reserve-images img:hover {
+            transform: scale(1.08);
+            box-shadow: 0 15px 30px rgba(255,215,0,0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            padding: 40px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+            nav ul {
+                gap: 20px;
+            }
+            nav ul li a {
+                font-size: 16px;
+            }
+            .hero h1 {
+                font-size: 50px;
+            }
+            .hero p {
+                font-size: 18px;
+            }
+            .experience, .reserve {
+                padding: 60px 20px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt="Oasis Nigerian Restaurant Logo"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="booking.html">Booking</a></li>
+                <li><a href="order.html">Order Food</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Video Section -->
+    <section class="hero">
+        <video autoplay muted loop playsinline>
+            <source src="videos/lounge-food.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h1>Oasis Nigerian Restaurant</h1>
+            <p>Authentic Nigerian Flavours • Premium Lounge Vibes • Unforgettable Nights in Nairobi</p>
+            <a href="order.html" class="btn">Order Food Now</a>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience">
+        <h2>The Oasis Experience</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>🍲 Authentic Nigerian Cuisine</h3>
+                <p>Jollof Rice, Suya, Egusi, Poundo Yam and more – made with love and original recipes.</p>
+            </div>
+            <div class="card">
+                <h3>🍹 Premium Drinks</h3>
+                <p>Cocktails, wines, spirits and fresh juices to match every mood.</p>
+            </div>
+            <div class="card">
+                <h3>🎶 Music & Vibes</h3>
+                <p>Live DJs, Afrobeats, good energy – the perfect Nairobi lounge atmosphere.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reserve Table Section - Added Here -->
+    <section class="reserve">
+        <h2>Reserve Your Table</h2>
+        <p>Book your spot for an unforgettable evening of great food, drinks, music, and vibes. Perfect for dates, groups, celebrations, or just unwinding after a long day in Nairobi.</p>
+        
+        <div class="reserve-images">
+            <img src="https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=1147496534081076" alt="Elegant lounge dining setup">
+            <img src="https://www.stlmag.com/wp-content/uploads/2025/08/Africana_geos_din-room-scaled.webp" alt="Premium restaurant interior with reserved tables">
+            <img src="https://cdn.vox-cdn.com/uploads/chorus_image/image/72785615/LagosBar4.0.jpg" alt="Cozy Nigerian-inspired lounge seating">
+        </div>
+
+        <a href="booking.html" class="btn">Reserve Table Now</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Oasis Nigerian Restaurant & Lounge. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
